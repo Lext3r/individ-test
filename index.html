@@ -3,15 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.min.css">
     <title>Title</title>
 </head>
 <body>
 <div class="container">
-    <header>
+    <header class="d-md-block">
             <div class="top-header row">
                 <nav class=" top-header-menu navbar col-lg-9 col-md-12">
                     <a href="#" >О компании</a>
@@ -22,7 +21,7 @@
                     <a href="#" >Где купить</a>
                     <a href="#" >Оплата и доставка</a>
                     <a href="#" >Поддержка</a>
-                    <span class="search-icon"></span>
+                    <a href="#search-popup" class="search-icon"></a>
                 </nav>
                 <div class="language col-lg-1 col-md-6">
                    <span>
@@ -42,12 +41,11 @@
                     <span class="contacts__phone">8-800-250-24-93</span>
                     <br>
                     <a class="contacts__mail" href="mailto:info@ritmer.ru">info@ritmer.ru</a>
-                    <span class="contacts__feedback">Напишите нам</span>
+                    <a href="#feedback-popup" class="contacts__feedback">Напишите нам</a>
                 </div>
                 <div class="order col-md-6 col-lg-2">
-                    <button class="order_button"><img src="img/order.svg" alt="order-icon" /> Заказать</button>
+                    <button class="order__button"><img src="img/order.svg" alt="order-icon" /> Заказать</button>
                 </div>
-
             </div>
             <hr />
             <div class="bottom-header row">
@@ -61,29 +59,76 @@
             </div>
     </header>
     <main>
-        <div class="row">
+        <div class="main-content row">
             <section class="left col-md-5">
                 <div class="main-logo"><img src="img/heart.png"/> </div>
                 <div class="description">
-                    <b>Ritmer</b> — это персональный телемедицинский
+                    <p><b>Ritmer</b> — это персональный телемедицинский
                     кардиорегистратор с функцией <b>автоматического
                     анализа ЭКГ</b> для дистанционного и самостоятельного мониторинга состояния сердечно-сосудистой системы
                     и функционального состояния организма. Он
-                    предназначен <b>для тех, кто заботится о своем здоровье.</b>
+                    предназначен <b>для тех, кто заботится о своем здоровье.</b></p>
                 </div>
                 <button class="details">Подробнее о товаре</button>
-                <button class="app-store"></button>
-                <button class="play-market"></button>
+                <button class="app-store-btn"></button>
+                <button class="play-market-btn"></button>
             </section>
             <section class="right col-md-7">
-                <div class="right-desc">
-                    Наблюдайте за сердечной активностью
-                    и консультируйтесь с врачом
-                    прямо  в приложении
+                <div class="right-content">
+                    <img class="right-img" src="img/frame.png">
+                    <div class="right-desc">
+                        Наблюдайте за сердечной активностью
+                        и консультируйтесь с врачом
+                        прямо  в приложении
+                    </div>
                 </div>
             </section>
         </div>
     </main>
+
+    <!-- Pop-ups -->
+    <div id="search-popup" class="overlay">
+        <div class="popup">
+            <a class="close-btn" href="#">&times;</a>
+            <span class="popup-title">Поиск Ritmer</span>
+            <div class="popup-content">
+                <input type="search" class="form-control"   ><span class="search-btn">Поиск</span>
+            </div>
+        </div>
+    </div>
+    <div id="feedback-popup" class="overlay">
+        <div class="popup">
+            <a class="close-btn" href="#">&times;</a>
+            <span class="popup-title">Написать нам</span>
+            <div class="popup-content">
+                <form class="feedback-form">
+                    <div class="form-group">
+                        <label for="feedback-popup__name">Ваше имя</label>
+                        <input type="text" class="form-control" id="feedback-popup__name">
+                        <label for="feedback-popup__name" >Телефон <span class="req">*</span></label>
+                        <input type="tel" class="form-control" id="feedback-popup__phone" placeholder="+7(___)___-__-__" maxlength="12">
+                        <label for="feedback-popup__theme" >Тема обращения</label>
+                        <select class="form-control" id="feedback-popup__theme">
+                            <option value="">Выберите тему обращения</option>
+                            <option value="Тема 1">Тема 1</option>
+                            <option value="Тема 2">Тема 2</option>
+                            <option value="Тема 3">Тема 3</option>
+                            <option value="Тема 4">Тема 4</option>
+                            <option value="Тема 5">Тема 5</option>
+                        </select>
+                        <label for="feedback-popup__message" >Сообщение</label>
+                        <textarea class="form-control" id="feedback-popup__message" placeholder="Напишите свой вопрос, отзыв или предложение о сотрудничестве" rows="6"></textarea>
+                        <p><span class="req">*</span> Обязательные для заполнения поля</p>
+                        <div class="feedback-submit">
+                            <button class="feedback-submit__btn">Отправить</button><p class="feedback-submit__text">Нажимая «Отправить», я даю <u>согласие на обработку персональных данных</u></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Pop-ups end-->
+
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
